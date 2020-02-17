@@ -1,0 +1,27 @@
+@import '../../variables.scss';
+
+.banner {
+    overflow: auto;
+    padding: 4px 0 0;
+    background-color: $primary;
+    color: white;
+}
+
+.banner__message {
+    float: left;
+    margin-left: 8px;
+}
+
+.banner__user {
+    float: right;
+    margin-right: 8px;
+}
+
+.header {
+    clear: both;
+    text-align: center;
+    background-color: $primary;
+    color: white;
+    margin: 0;
+    padding-bottom: 4px;
+}

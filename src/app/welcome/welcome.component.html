@@ -1,0 +1,6 @@
+<h1 class="header">Welcome to Rock, Paper, Scissors</h1>
+<div class="form" [formGroup]="form">
+    <label class="form__label">Please enter your name:</label>
+    <input class="form__input" formControlName="playerName" />
+</div>
+<button class="btn" (click)="proceedToGame()">Play Game</button>

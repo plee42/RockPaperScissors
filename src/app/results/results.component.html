@@ -1,0 +1,20 @@
+<div class="results">
+    <div class="results__info">
+        <div *ngIf="winner === roundWinner.USER">
+            You Win!
+        </div>
+        <div *ngIf="winner === roundWinner.COMPUTER">
+            You Lose!
+        </div>
+        <div *ngIf="winner === roundWinner.DRAW">
+            It's a Draw!
+        </div>
+    </div>
+    <div class="results__score">
+        {{name}} {{playerScore}} - {{computerScore}} Computer
+    </div>
+    <button (click)="returnToWelcome()">Play Again</button>
+    <div *ngFor="let result of results">
+        <app-round-result [result]="result"></app-round-result>
+    </div>
+</div>

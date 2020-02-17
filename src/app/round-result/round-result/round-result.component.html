@@ -1,0 +1,23 @@
+<div *ngIf=result class="round">
+    <div class="round__number">Round {{result.roundNumber}}</div>
+    <div class="round__grid">
+        <div class="round__choice round__choice--player">
+            <img [src]="result.playerChoice.image" />
+        </div>
+
+        <div class="round__result round__result--player">
+            <div *ngIf="result.winner === roundWinner.USER">W</div>
+            <div *ngIf="result.winner === roundWinner.COMPUTER">L</div>
+            <div *ngIf="result.winner === roundWinner.DRAW">D</div>
+        </div>
+        <div class="round__result round__result--computer">
+            <div *ngIf="result.winner === roundWinner.COMPUTER">W</div>
+            <div *ngIf="result.winner === roundWinner.USER">L</div>
+            <div *ngIf="result.winner === roundWinner.DRAW">D</div>
+        </div>
+
+        <div class="round__choice round__choice--computer">
+            <img [src]="result.computerChoice.image" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="game">
+    <div class="game__score">
+        {{name}} {{playerScore(1)}} - {{playerScore(2)}} Computer
+    </div>
+    <div class="game__intro">
+        <div>Round {{roundNumber}}</div>
+        <div>Pick one of rock, paper or scissors:</div>
+    </div>
+    <div class="game__move-container game__move-container--player">
+        <div class="game__move" *ngFor="let move of moveList" (click)="takeTurn(move)"
+        [ngClass]="[isWinner(move, 1) ? 'game__move--winner' : '',
+        isDraw(move) ? 'game__move--draw' : '',
+        isUserLoserMove(move) ? 'game__move--loser' : '']">
+            <div>{{move.name}}</div>
+            <img [src]="move.image" />
+        </div>
+    </div>
+    <div class="game__vs-text">
+        Vs Computer
+    </div>
+    <div class="game__move-container" *ngIf="computerMove">
+        <div class="game__move" *ngFor="let move of moveList"        
+        [ngClass]="[isWinner(move, 2) ? 'game__move--winner' : '',
+        isDraw(move) ? 'game__move--draw' : '',
+        isComputerLoserMove(move) ? 'game__move--loser' : '']">
+            <div class="game__move-name">{{move.name}}</div>
+            <img class="game__move-img" [src]="move.image" />
+        </div>
+    </div>
+</div>

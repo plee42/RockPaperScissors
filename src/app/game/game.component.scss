@@ -1,0 +1,51 @@
+.game {
+    text-align: center;
+    margin: 0 auto;
+
+    div {
+        margin-top: 5px;
+    }
+    .game__intro {
+        font-size: 1.6rem;
+    }
+
+    .game__vs-text {
+        font-size: 2rem;
+    }
+
+    .game__move-container {
+        display: grid;
+        grid-template-columns: 30vw 30vw 30vw;
+        justify-content: center;
+
+        .game__move {
+
+            img {
+                max-width: 20vw;
+                margin-top: 10px;
+            }
+        }
+
+        .game__move--winner {
+            border: 5px solid green;
+        }
+
+        .game__move--draw {
+            border: 5px solid yellow
+        }
+
+        .game__move--loser {
+            border: 5px solid red;
+        }
+    }
+
+    .game__move-container--player {
+        .game__move {
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+
+}

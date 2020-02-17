@@ -1,0 +1,21 @@
+.header {
+    text-align: center;
+}
+
+.form {
+    text-align: center;
+
+    .form__label {
+        display: block;
+    }
+
+    .form__input {
+        display: block;
+        margin: 5px auto 10px;
+    }
+}
+
+.btn {
+    display: block;
+    margin: 0 auto;
+}

@@ -1,0 +1,21 @@
+@import './variables.scss';
+
+body {
+    margin: 0;
+}
+
+button {
+    text-align: center;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: white;
+    background-color: $primary;
+}
+
+input {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
