@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { UserService } from '../user/user.service';
+import { DEFAULT_PLAYER_NAME } from '../constants/app.constants';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,7 @@ import { UserService } from '../user/user.service';
 export class HeaderComponent implements OnInit {
 
   user = '';
+  defaultPlayerName = DEFAULT_PLAYER_NAME;
 
   constructor(private title: Title, private userService: UserService) { }
 

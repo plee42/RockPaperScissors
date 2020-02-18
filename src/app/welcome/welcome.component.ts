@@ -20,7 +20,7 @@ export class WelcomeComponent implements OnInit {
   form: FormGroup;
 
   constructor(private title: Title, private fb: FormBuilder, private router: Router,
-              private store: Store<AppState>, private userService: UserService) {
+              private userService: UserService) {
     title.setTitle('Welcome');
   }
 
@@ -28,13 +28,13 @@ export class WelcomeComponent implements OnInit {
     this.initialiseForm();
   }
 
-  initialiseForm(): void {
+  private initialiseForm(): void {
     this.form = this.fb.group({
       playerName: ''
     });
   }
 
-  setName(): void {
+  private setName(): void {
     const user = this.form.get('playerName').value;
     this.userService.setUser(user);
   }

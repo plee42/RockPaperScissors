@@ -13,7 +13,7 @@
     <div class="results__score">
         {{name}} {{playerScore}} - {{computerScore}} Computer
     </div>
-    <button (click)="returnToWelcome()">Play Again</button>
+    <button class="button" (click)="returnToWelcome()">Play Again</button>
     <div *ngFor="let result of results">
         <app-round-result [result]="result"></app-round-result>
     </div>

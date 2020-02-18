@@ -3,6 +3,4 @@ export interface IMove {
     name: string;
     image: string;
     beats: number;
-    selected: boolean;
-    selector: number;
 }

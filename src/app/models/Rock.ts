@@ -6,6 +6,4 @@ export class Rock implements IMove {
     readonly name = 'Rock';
     readonly image = '/assets/rock.png';
     readonly beats = MoveName.SCISSORS;
-    selected: boolean;
-    selector: number;
 }

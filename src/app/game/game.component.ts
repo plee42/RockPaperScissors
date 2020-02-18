@@ -7,11 +7,13 @@ import { Rock } from '../models/Rock';
 import { Paper } from '../models/Paper';
 import { Scissors } from '../models/Scissors';
 import { MoveName } from '../enums/MoveName';
-import { IRoundResult } from '../interfaces/IRoundResults';
+import { IRoundResult } from '../interfaces/IRoundResult';
 import { EResultsActions } from '../store/actions/results.actions';
 import { RoundWinner } from '../enums/RoundWinner';
 import { AppState } from '../store/state/app.state';
 import { UserService } from '../user/user.service';
+import { PlayerType } from '../enums/PlayerType';
+import { DEFAULT_PLAYER_NAME } from '../constants/app.constants';
 
 @Component({
   selector: 'app-game',
@@ -22,14 +24,17 @@ export class GameComponent implements OnInit, OnDestroy {
 
   playerMove: IMove;
   computerMove: IMove;
+  playerScore = 0;
+  computerScore = 0;
   moveList = new Array<IMove>();
   roundNumber = 1;
   roundResult: IRoundResult;
   roundPlayerWinner: number;
   roundMoveWinner: number;
   private storeSubscription: any;
-  name = 'Player One';
+  name = DEFAULT_PLAYER_NAME;
   results: IRoundResult[];
+  playerType = PlayerType;
 
   constructor(private title: Title, private router: Router, private store: Store<AppState>,
               private userService: UserService) {
@@ -46,22 +51,11 @@ export class GameComponent implements OnInit, OnDestroy {
     this.storeSubscription.unsubscribe();
   }
 
-  playerScore(playerType: number): number {
-    let score = 0;
-    this.results.forEach( result => {
-      if (result.winner === playerType) {
-        score += 1;
-      }
-    });
-
-    return score;
-  }
-
-  setUpUserChoices(): void {
+  private setUpUserChoices(): void {
     this.moveList.push(new Rock(), new Paper(), new Scissors());
   }
 
-  subscribeToStore(): void {
+  private subscribeToStore(): void {
     this.storeSubscription = this.store
     .select('results')
     .subscribe(results => {
@@ -69,15 +63,14 @@ export class GameComponent implements OnInit, OnDestroy {
     });
   }
 
-  subscribeToName(): void {
+  private subscribeToName(): void {
     this.userService.getUser().subscribe( name => {
-      this.name = name ? name : 'Player One';
+      this.name = name ? name : DEFAULT_PLAYER_NAME;
     });
   }
 
   takeTurn(move: IMove): void {
     this.playerMove = move;
-    this.playerMove.selected = true;
     this.calculateComputerMove();
     this.determineRoundWinner();
     this.createRoundResult();
@@ -133,9 +126,11 @@ export class GameComponent implements OnInit, OnDestroy {
   private determineRoundWinner(): void {
     if (this.playerMove.beats === this.computerMove.id) {
       this.roundPlayerWinner = RoundWinner.USER;
+      this.playerScore += 1;
       this.roundMoveWinner = this.playerMove.id;
     } else if (this.computerMove.beats === this.playerMove.id) {
       this.roundPlayerWinner = RoundWinner.COMPUTER;
+      this.computerScore += 1;
       this.roundMoveWinner = this.computerMove.id;
     } else {
       this.roundPlayerWinner = RoundWinner.DRAW;
@@ -143,20 +138,22 @@ export class GameComponent implements OnInit, OnDestroy {
     }
   }
 
-  private createRoundResult() {
+  private createRoundResult(): void {
     this.roundResult = {
       roundNumber: this.roundNumber,
       playerChoice: this.playerMove,
       computerChoice: this.computerMove,
-      winner: this.roundPlayerWinner
+      winner: this.roundPlayerWinner,
+      playerScore: this.playerScore,
+      computerScore: this.computerScore
     };
   }
 
-  updateResults(): void {
+  private updateResults(): void {
     this.store.dispatch({ type: EResultsActions.UpdateResults, payload: this.roundResult });
   }
 
-  calculateComputerMove(): void {
+  private calculateComputerMove(): void {
     const randomNumber = Math.floor((Math.random() * 3) + 1);
     switch (randomNumber) {
       case MoveName.ROCK:
@@ -170,5 +167,4 @@ export class GameComponent implements OnInit, OnDestroy {
         break;
     }
   }
-
 }

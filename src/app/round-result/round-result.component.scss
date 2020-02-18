@@ -1,0 +1,94 @@
+.round {
+    margin: 0 auto;
+
+    .round__grid {
+        display: grid;
+        @media only screen and (max-width: 767px) {
+            grid-template-columns: 10fr 1fr 10fr;
+            grid-template-rows: 3fr 1fr 1fr;
+            grid-template-areas: 
+                "player-choice . computer-choice"
+                "results results results"
+                "score score score";
+        }
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: 
+            "player-choice score computer-choice"
+            "player-choice results computer-choice";
+        
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+
+        .round__choice--player {
+            grid-area: player-choice;
+        }
+
+        .round__cumulative-score {
+            grid-area: score;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+
+            @media only screen and (max-width: 767px) {
+                grid-template-columns: 10fr 1fr 10fr;
+                grid-template-columns: "player-score score-divider computer-score";
+            }
+
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: "player-score score-divider computer-score";
+
+            .round__cumulative-player-score {
+                grid-area: player-score;
+            }
+
+            .round__cumulative-score-divider {
+                grid-area: score-divider;
+            }
+
+            .round__cumulative-computer-score {
+                grid-area: computer-score;
+            }
+        }
+
+        .round__results {
+            grid-area: results;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+
+            @media only screen and (max-width: 767px) {
+                grid-template-columns: 10fr 1fr 10fr;
+                grid-template-areas: "player-result . computer-result";
+            }
+
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: "player-result . computer-result";
+
+            .round__result--player {
+                grid-area: player-result;
+            }
+
+            .round__result--computer {
+                grid-area: computer-result;
+            }
+        }
+
+        .round__choice--computer {
+            grid-area: computer-choice;
+        }
+
+        .round__result {
+            margin: auto 0;
+        }
+
+        .round__choice {
+
+            img {
+                max-width: 20vw;
+                margin-top: 10px;
+            }
+        }
+    }
+}

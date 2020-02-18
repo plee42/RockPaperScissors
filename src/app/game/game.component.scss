@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .game {
     text-align: center;
     margin: 0 auto;
@@ -5,12 +7,9 @@
     div {
         margin-top: 5px;
     }
-    .game__intro {
-        font-size: 1.6rem;
-    }
 
-    .game__vs-text {
-        font-size: 2rem;
+    .game__vs-text, .game__intro {
+        font-size: 1.6rem;
     }
 
     .game__move-container {
@@ -27,15 +26,15 @@
         }
 
         .game__move--winner {
-            border: 5px solid green;
+            border: 5px solid $win;
         }
 
         .game__move--draw {
-            border: 5px solid yellow
+            border: 5px solid $draw;
         }
 
         .game__move--loser {
-            border: 5px solid red;
+            border: 5px solid $lose;
         }
     }
 

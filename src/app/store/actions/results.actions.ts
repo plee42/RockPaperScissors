@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { IRoundResult } from 'src/app/interfaces/IRoundResults';
+import { IRoundResult } from 'src/app/interfaces/IRoundResult';
 
 export enum EResultsActions {
     UpdateResults = '[Results] Get Results',

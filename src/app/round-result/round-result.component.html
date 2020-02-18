@@ -1,0 +1,31 @@
+<div *ngIf=result class="round">
+    <div class="round__number">Round {{result.roundNumber}}</div>
+    <div class="round__grid">
+        <div class="round__choice round__choice--player">
+            <img [src]="result.playerChoice.image" />
+        </div>
+
+        <div class="round__cumulative-score">
+            <div class="round__cumulative-player-score">{{result.playerScore}}</div>
+            <div class="round__cumulative-score-divider">-</div>
+            <div class="round__cumulative-computer-score">{{result.computerScore}}</div>
+        </div>
+
+        <div class="round__results">
+            <div class="round__result round__result--player">
+                <div class="round__result-letter-player" *ngIf="result.winner === roundWinner.USER">W</div>
+                <div class="round__result-letter-player" *ngIf="result.winner === roundWinner.COMPUTER">L</div>
+                <div class="round__result-letter-player" *ngIf="result.winner === roundWinner.DRAW">D</div>
+            </div>
+            <div class="round__result round__result--computer">
+                <div class="round__result-letter-computer" *ngIf="result.winner === roundWinner.COMPUTER">W</div>
+                <div class="round__result-letter-computer" *ngIf="result.winner === roundWinner.USER">L</div>
+                <div class="round__result-letter-computer" *ngIf="result.winner === roundWinner.DRAW">D</div>
+            </div>
+        </div>
+
+        <div class="round__choice round__choice--computer">
+            <img [src]="result.computerChoice.image" />
+        </div>
+    </div>
+</div>

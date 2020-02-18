@@ -6,6 +6,4 @@ export class Scissors implements IMove {
     readonly name = 'Scissors';
     readonly image = '/assets/scissors.png';
     readonly beats = MoveName.PAPER;
-    selected: boolean;
-    selector: number;
 }

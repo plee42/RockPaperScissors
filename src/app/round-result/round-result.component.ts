@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IRoundResult } from 'src/app/interfaces/IRoundResults';
+import { IRoundResult } from 'src/app/interfaces/IRoundResult';
 import { RoundWinner } from 'src/app/enums/RoundWinner';
 
 @Component({
@@ -15,9 +15,6 @@ export class RoundResultComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // I'm really sorry, I know this component is meant to show cumulative scores
-    // but I just ran out of time. I would ideally liked to have spent more time on
-    // styling and unit tests had I had more time. I hope you like everything else!
   }
 
 }

@@ -6,6 +6,4 @@ export class Paper implements IMove {
     readonly name = 'Paper';
     readonly image = '/assets/paper.png';
     readonly beats = MoveName.ROCK;
-    selected: boolean;
-    selector: number;
 }

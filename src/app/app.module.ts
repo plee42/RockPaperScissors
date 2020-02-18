@@ -10,7 +10,7 @@ import { GameComponent } from './game/game.component';
 import { ResultsComponent } from './results/results.component';
 import { HeaderComponent } from './header/header.component';
 import { resultsReducer } from './store/reducers/results.reducer';
-import { RoundResultComponent } from './round-result/round-result/round-result.component';
+import { RoundResultComponent } from './round-result/round-result.component';
 
 @NgModule({
   declarations: [

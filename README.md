@@ -1,2 +1,1 @@
-Hello all at Proctor + Stevenson. Unfortunately I ran out of time so didn't get the chance to do a few things I wanted to like adding the 
-cumulative scores to the results page, adding Jasmine tests, and making the styling look better. I hope you like my work anyway!
+Hi all at Proctor and Stevenson. I hope you like my work!

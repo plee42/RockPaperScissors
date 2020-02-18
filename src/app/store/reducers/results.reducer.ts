@@ -1,5 +1,5 @@
 import { ResultsActions, EResultsActions } from '../actions/results.actions';
-import { IRoundResult } from 'src/app/interfaces/IRoundResults';
+import { IRoundResult } from 'src/app/interfaces/IRoundResult';
 
 export function resultsReducer(
     state: Array<IRoundResult> = [],
@@ -13,7 +13,9 @@ export function resultsReducer(
                     roundNumber: action.payload.roundNumber,
                     playerChoice: action.payload.playerChoice,
                     computerChoice: action.payload.computerChoice,
-                    winner: action.payload.winner
+                    winner: action.payload.winner,
+                    playerScore: action.payload.playerScore,
+                    computerScore: action.payload.computerScore
                 })
             ];
         }

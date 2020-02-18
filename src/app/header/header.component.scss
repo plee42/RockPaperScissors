@@ -4,7 +4,7 @@
     overflow: auto;
     padding: 4px 0 0;
     background-color: $primary;
-    color: white;
+    color: $secondary;
 }
 
 .banner__message {
@@ -21,7 +21,7 @@
     clear: both;
     text-align: center;
     background-color: $primary;
-    color: white;
+    color: $secondary;
     margin: 0;
     padding-bottom: 4px;
 }
